@@ -46,7 +46,7 @@ public class Doctors {
                 int id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
                 String specialization = resultSet.getString("specialization");
-                System.out.println("ID: " + id + " | Name: " + name + " | Specialization: " + specialization + "|" );
+                System.out.println("ID: " + id + " | Name: " + name + " | Specialization: " + specialization + "|");
             }
 
         } catch (SQLException e) {

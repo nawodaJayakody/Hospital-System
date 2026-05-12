@@ -13,8 +13,10 @@ public class Patients {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the patient name:");
         String patientname = scanner.nextLine();
+
         System.out.println("Enter the age of the patient:");
         int patientage = scanner.nextInt();
+        scanner.nextLine();
         System.out.println("Enter the patient Gender:");
         String patientgender = scanner.nextLine();
         String query = "INSERT INTO patients(name, age, gender) VALUES(?, ?, ?)";
@@ -47,15 +49,15 @@ public class Patients {
                                                                     // (how many rows changed).
 
             System.out.println("--------------------- PATIENT LIST -----------------------------");
-            System.out.println("****************************************************************");
-            System.out.println("|  Patient ID |             Name                | Age | Gender |");
-            System.out.println("****************************************************************");
+            System.out.println("*********************************************************");
+            System.out.println("| Patient ID |            Name           | Age | Gender |");
+            System.out.println("*********************************************************");
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
                 int age = resultSet.getInt("age");
                 String gender = resultSet.getString("gender");
-                System.out.println("ID: " + id + " | Name: " + name + " | Age: " + age + " | Gender: " + gender);
+                System.out.printf("| %-10d | %-25s | %-3d | %-6s |%n", id, name, age, gender);
             }
 
         } catch (SQLException e) {
